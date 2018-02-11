@@ -11,11 +11,9 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class MainModule {
 
-    @ContributesAndroidInjector
-    abstract MainActivity mainActivity();
-
     @Provides
-    public String provideS(){
+    public static String provideS(){
         return "xxxxxooooo";
     }
+
 }
