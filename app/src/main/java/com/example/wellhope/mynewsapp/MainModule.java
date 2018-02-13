@@ -1,5 +1,8 @@
 package com.example.wellhope.mynewsapp;
 
+import com.example.wellhope.mynewsapp.di.ActivityScoped;
+
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 import dagger.android.ContributesAndroidInjector;
@@ -9,11 +12,9 @@ import dagger.android.ContributesAndroidInjector;
  */
 
 @Module
-public abstract class MainModule {
+public class MainModule {
 
+    @ActivityScoped
     @Provides
-    public static String provideS(){
-        return "xxxxxooooo";
-    }
-
+    Student provideStudent(){Student student = new Student("xxx",16);return student;}
 }
