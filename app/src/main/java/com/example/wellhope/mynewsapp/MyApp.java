@@ -1,5 +1,7 @@
 package com.example.wellhope.mynewsapp;
 
+import android.app.Application;
+
 import com.example.wellhope.mynewsapp.di.DaggerAppComponent;
 
 import dagger.android.AndroidInjector;
@@ -11,6 +13,18 @@ import dagger.android.DaggerApplication_MembersInjector;
  */
 
 public class MyApp extends DaggerApplication {
+
+    private static Application mContext;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mContext = this;
+    }
+
+    public static Application getContext() {
+        return mContext;
+    }
 
     @Override
     protected AndroidInjector<? extends DaggerApplication> applicationInjector() {

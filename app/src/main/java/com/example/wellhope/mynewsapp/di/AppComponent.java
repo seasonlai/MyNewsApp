@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.example.wellhope.mynewsapp.MainModule;
 import com.example.wellhope.mynewsapp.MyApp;
+import com.example.wellhope.mynewsapp.base.BaseModule;
 
 import dagger.BindsInstance;
 import dagger.Component;
@@ -21,7 +22,11 @@ import dagger.android.support.AndroidSupportInjectionModule;
 })
 public interface AppComponent extends AndroidInjector<MyApp> {
 
+
     @Component.Builder
     abstract class Bulider extends AndroidInjector.Builder<MyApp> {
     }
+
+
+
 }

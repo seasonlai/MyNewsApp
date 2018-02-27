@@ -13,6 +13,7 @@ import dagger.Provides;
 @Module
 public abstract class AppModule {
 
+    private Context mContext;
 
     @Binds
     abstract Context bindContext(Application application);
