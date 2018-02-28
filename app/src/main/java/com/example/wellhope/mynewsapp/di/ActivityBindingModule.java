@@ -1,9 +1,6 @@
 package com.example.wellhope.mynewsapp.di;
 
 import com.example.wellhope.mynewsapp.MainActivity;
-import com.example.wellhope.mynewsapp.MainModule;
-import com.example.wellhope.mynewsapp.base.BaseActivity;
-import com.example.wellhope.mynewsapp.base.BaseModule;
 import com.example.wellhope.mynewsapp.welcome.WelcomeActivity;
 import com.example.wellhope.mynewsapp.welcome.WelcomeModule;
 
@@ -22,7 +19,7 @@ public abstract class ActivityBindingModule {
 //    abstract BaseActivity baseActivity();
 
     @ActivityScoped
-    @ContributesAndroidInjector(modules = MainModule.class)
+    @ContributesAndroidInjector()
     abstract MainActivity mainActivity();
 
     @ActivityScoped

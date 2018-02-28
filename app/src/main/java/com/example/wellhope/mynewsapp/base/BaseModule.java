@@ -1,5 +1,7 @@
 package com.example.wellhope.mynewsapp.base;
 
+import javax.annotation.Nullable;
+
 import dagger.Module;
 import dagger.Provides;
 import io.reactivex.disposables.CompositeDisposable;
@@ -12,7 +14,11 @@ import io.reactivex.disposables.CompositeDisposable;
 public class BaseModule {
 
     @Provides
-    CompositeDisposable providerCompositeDisposable(){
+    @Nullable
+    BaseContract.Presenter providerBasePresenter(){return null;}
+
+    @Provides
+    CompositeDisposable providerCompositeDisposable() {
         return new CompositeDisposable();
     }
 }

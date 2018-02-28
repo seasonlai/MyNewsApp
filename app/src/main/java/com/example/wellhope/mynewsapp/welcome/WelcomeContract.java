@@ -1,6 +1,5 @@
 package com.example.wellhope.mynewsapp.welcome;
 
-import com.example.wellhope.mynewsapp.base.BasePresenter;
 import com.example.wellhope.mynewsapp.base.BaseView;
 
 /**
@@ -9,7 +8,7 @@ import com.example.wellhope.mynewsapp.base.BaseView;
 
 public class WelcomeContract {
 
-    interface View extends BaseView<WelcomePresenter>{
+    interface View extends BaseView{
 
         void startGif();
 
@@ -18,8 +17,7 @@ public class WelcomeContract {
         void toMainActivity();
     }
 
-    static abstract class Presenter extends BasePresenter<WelcomeContract.View>{
-
-        abstract void start();
+    interface Presenter {
+        void toMainActivity();
     }
 }

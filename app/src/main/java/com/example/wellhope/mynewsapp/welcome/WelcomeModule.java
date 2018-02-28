@@ -1,5 +1,7 @@
 package com.example.wellhope.mynewsapp.welcome;
 
+import com.example.wellhope.mynewsapp.base.BasePresenter;
+
 import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
@@ -10,18 +12,6 @@ import dagger.Provides;
 
 @Module
 public abstract class WelcomeModule {
-
-//    @Provides
-//    WelcomePresenter providerPresenter(WelcomeContract.View view){
-//        return new WelcomePresenter(view);
-//    }
-
-
     @Binds
     abstract WelcomeContract.View welcomeView(WelcomeActivity view);
-
-    @Binds
-    abstract WelcomeContract.Presenter welcomePresenter(WelcomePresenter presenter);
-
-
 }

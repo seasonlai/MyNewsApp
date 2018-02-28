@@ -3,6 +3,8 @@ package com.example.wellhope.mynewsapp.di;
 import android.app.Application;
 import android.content.Context;
 
+import com.example.wellhope.mynewsapp.MyApp;
+
 import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
@@ -13,8 +15,6 @@ import dagger.Provides;
 @Module
 public abstract class AppModule {
 
-    private Context mContext;
-
     @Binds
-    abstract Context bindContext(Application application);
+    abstract Application bindContext(MyApp myApp);
 }

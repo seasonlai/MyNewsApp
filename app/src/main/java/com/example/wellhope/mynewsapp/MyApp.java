@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.example.wellhope.mynewsapp.di.DaggerAppComponent;
 
+import javax.inject.Inject;
+
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
 import dagger.android.DaggerApplication_MembersInjector;

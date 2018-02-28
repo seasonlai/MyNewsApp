@@ -17,8 +17,9 @@ import dagger.android.support.DaggerAppCompatActivity;
  * Created by Wellhope on 2018/2/9.
  */
 
-public abstract class BaseActivity<T extends BasePresenter> extends DaggerAppCompatActivity {
+public abstract class BaseActivity<T extends BaseContract.Presenter> extends SupportActivity {
 
+    @Nullable
     @Inject
     protected T mPresenter;
 
@@ -32,7 +33,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends DaggerAppCom
             setContentView(resId);
         }
         mUnbinder = ButterKnife.bind(this);
-        create();
+        create(savedInstanceState);
     }
 
 
@@ -44,13 +45,13 @@ public abstract class BaseActivity<T extends BasePresenter> extends DaggerAppCom
 //    }
 
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        if(mPresenter!=null){
-//            mPresenter.subscribe();
-//        }
-//    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(mPresenter!=null){
+            mPresenter.subscribe();
+        }
+    }
 
     @Override
     protected void onDestroy() {
@@ -64,7 +65,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends DaggerAppCom
         super.onDestroy();
     }
 
-    protected abstract void create();
+    protected abstract void create(Bundle savedInstanceState);
 
     protected abstract int getLayoutId();
 

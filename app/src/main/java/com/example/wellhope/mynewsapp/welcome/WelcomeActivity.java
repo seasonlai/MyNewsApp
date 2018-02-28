@@ -2,6 +2,7 @@ package com.example.wellhope.mynewsapp.welcome;
 
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -31,8 +32,9 @@ public class WelcomeActivity extends BaseActivity<WelcomePresenter> implements W
     FrameLayout flAd;
 
     @Override
-    protected void create() {
-        setPresenter(new WelcomePresenter(this));
+    protected void create(Bundle savedInstanceState) {
+//        setPresenter(new WelcomePresenter(this));
+        mPresenter.subscribe();
     }
 
     @Override
@@ -57,7 +59,7 @@ public class WelcomeActivity extends BaseActivity<WelcomePresenter> implements W
 
     @OnClick(R.id.fl_ad)
     public void onViewClicked() {
-        toMainActivity();
+        this.mPresenter.toMainActivity();
     }
 
     @Override
@@ -73,10 +75,28 @@ public class WelcomeActivity extends BaseActivity<WelcomePresenter> implements W
         finish();
     }
 
+    @Override
+    public void showLoading() {
 
+    }
 
     @Override
-    public void setPresenter(WelcomePresenter presenter) {
-        this.mPresenter = presenter;
+    public void showSuccess() {
+
+    }
+
+    @Override
+    public void showFailed() {
+
+    }
+
+    @Override
+    public void showNoNet() {
+
+    }
+
+    @Override
+    public void onRetry() {
+
     }
 }

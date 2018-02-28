@@ -1,6 +1,8 @@
 package com.example.wellhope.mynewsapp.welcome;
 
 
+import com.example.wellhope.mynewsapp.base.BasePresenter;
+
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -8,6 +10,7 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
@@ -17,20 +20,16 @@ import io.reactivex.observers.DisposableObserver;
  * Created by season on 2018/2/25.
  */
 
-public class WelcomePresenter extends WelcomeContract.Presenter {
+public class WelcomePresenter extends BasePresenter<WelcomeContract.View> implements WelcomeContract.Presenter {
 
     @Inject
     public WelcomePresenter(WelcomeContract.View view){
         this.mView = view;
+//        this.mCompositeDisposable = new CompositeDisposable();
     }
 
     @Override
-    protected void subscribe() {
-
-    }
-
-    @Override
-    void start() {
+    public void subscribe() {
         mView.startGif();
 
         mCompositeDisposable.add(countDown(3)
@@ -42,7 +41,7 @@ public class WelcomePresenter extends WelcomeContract.Presenter {
                 }).subscribeWith(new DisposableObserver<Integer>() {
                     @Override
                     public void onNext(Integer integer) {
-                        mView.showSkipTime(integer+1);
+                        mView.showSkipTime(integer);
                     }
 
                     @Override
@@ -70,5 +69,10 @@ public class WelcomePresenter extends WelcomeContract.Presenter {
                     }
                 })
                 .take(countTime + 1);
+    }
+
+    @Override
+    public void toMainActivity() {
+        this.mView.toMainActivity();
     }
 }

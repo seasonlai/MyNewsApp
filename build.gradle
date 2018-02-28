@@ -47,6 +47,14 @@ ext {
     roomVersion = "1.0.0"
     daggerVersion = '2.11'
     dexmakerVersion = '1.2'
+    rxjavaVersion='2.0.6'
+    rxandroidVersion='2.0.1'
+    butterknifeVersion='8.8.1'
+    butterknifeCompilerVersion='8.8.1'
+    gifDrawableVersion='1.2.8'
+    glideVersion='4.0.0-RC1'
+    fragmentationVersion='1.2.7'
+    fragmentationCoreVersion='1.2.7'
 }
 
 allprojects {
