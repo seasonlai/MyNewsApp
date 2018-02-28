@@ -39,6 +39,10 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeCompilerVersion"
     implementation "pl.droidsonroids.gif:android-gif-drawable:$rootProject.gifDrawableVersion"
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
-    implementation "me.yokeyword:fragmentation:$rootProject.fragmentationVersion"
+//    implementation "me.yokeyword:fragmentation:$rootProject.fragmentationVersion"
     implementation "me.yokeyword:fragmentation-core:$rootProject.fragmentationCoreVersion"
+    implementation "org.litepal.android:core:$rootProject.litepalVersion"
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.baseAdapterHelperVersion"
+    implementation "com.flyco.dialog:FlycoDialog_Lib:$rootProject.flycoDialogVersion"
+    implementation "com.flyco.tablayout:FlycoTabLayout_Lib:$rootProject.tablayoutVersion"
 }

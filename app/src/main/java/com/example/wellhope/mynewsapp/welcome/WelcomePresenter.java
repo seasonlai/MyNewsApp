@@ -1,7 +1,7 @@
 package com.example.wellhope.mynewsapp.welcome;
 
 
-import com.example.wellhope.mynewsapp.base.BasePresenter;
+import com.example.wellhope.mynewsapp.ui.base.BasePresenter;
 
 import java.util.concurrent.TimeUnit;
 
@@ -10,7 +10,6 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
@@ -25,7 +24,6 @@ public class WelcomePresenter extends BasePresenter<WelcomeContract.View> implem
     @Inject
     public WelcomePresenter(WelcomeContract.View view){
         this.mView = view;
-//        this.mCompositeDisposable = new CompositeDisposable();
     }
 
     @Override

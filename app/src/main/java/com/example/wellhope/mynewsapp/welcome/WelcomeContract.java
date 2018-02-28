@@ -1,6 +1,6 @@
 package com.example.wellhope.mynewsapp.welcome;
 
-import com.example.wellhope.mynewsapp.base.BaseView;
+import com.example.wellhope.mynewsapp.ui.base.BaseView;
 
 /**
  * Created by season on 2018/2/25.

@@ -1,10 +1,12 @@
-package com.example.wellhope.mynewsapp.base;
+package com.example.wellhope.mynewsapp.ui.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -15,6 +17,7 @@ import butterknife.Unbinder;
 
 public abstract class BaseFragment<T extends BasePresenter> extends SupportFragment {
 
+    @Inject
     protected T presenter;
 
     protected View mRootView;
@@ -22,7 +25,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends SupportFragm
     Unbinder unbinder;
 
 
-    abstract int getLayoutID();
+    protected abstract int getLayoutID();
 
     @Nullable
     @Override

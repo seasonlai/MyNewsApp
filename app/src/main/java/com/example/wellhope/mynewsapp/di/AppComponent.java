@@ -1,7 +1,7 @@
 package com.example.wellhope.mynewsapp.di;
 
 import com.example.wellhope.mynewsapp.MyApp;
-import com.example.wellhope.mynewsapp.base.BaseModule;
+import com.example.wellhope.mynewsapp.ui.base.BaseModule;
 
 import dagger.Component;
 import dagger.android.AndroidInjector;
@@ -15,7 +15,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
         AndroidSupportInjectionModule.class,
         AppModule.class,
         BaseModule.class,
-        ActivityBindingModule.class
+        ActivityBindingModule.class,
+        FragmentBindingModule.class
 })
 public interface AppComponent extends AndroidInjector<MyApp> {
 

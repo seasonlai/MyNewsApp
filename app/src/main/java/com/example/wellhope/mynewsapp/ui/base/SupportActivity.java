@@ -1,8 +1,5 @@
-package com.example.wellhope.mynewsapp.base;
+package com.example.wellhope.mynewsapp.ui.base;
 
-import android.support.v7.app.AppCompatActivity;
-
-import dagger.android.DaggerActivity;
 import dagger.android.support.DaggerAppCompatActivity;
 import me.yokeyword.fragmentation.ExtraTransaction;
 import me.yokeyword.fragmentation.ISupportActivity;

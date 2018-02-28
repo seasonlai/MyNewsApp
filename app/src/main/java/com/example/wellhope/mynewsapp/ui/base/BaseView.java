@@ -1,4 +1,4 @@
-package com.example.wellhope.mynewsapp.base;
+package com.example.wellhope.mynewsapp.ui.base;
 
 /**
  * Created by season on 2018/2/25.

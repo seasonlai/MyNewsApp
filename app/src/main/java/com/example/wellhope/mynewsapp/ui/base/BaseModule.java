@@ -1,4 +1,4 @@
-package com.example.wellhope.mynewsapp.base;
+package com.example.wellhope.mynewsapp.ui.base;
 
 import javax.annotation.Nullable;
 

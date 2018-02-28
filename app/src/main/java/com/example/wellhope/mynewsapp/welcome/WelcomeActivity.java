@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.wellhope.mynewsapp.MainActivity;
 import com.example.wellhope.mynewsapp.R;
-import com.example.wellhope.mynewsapp.base.BaseActivity;
+import com.example.wellhope.mynewsapp.ui.base.BaseActivity;
 import com.example.wellhope.mynewsapp.utils.ImageLoaderUtil;
 
 import butterknife.BindView;

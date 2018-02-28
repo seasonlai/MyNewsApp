@@ -1,9 +1,7 @@
-package com.example.wellhope.mynewsapp.base;
+package com.example.wellhope.mynewsapp.ui.base;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 
 import dagger.android.support.DaggerFragment;
 import me.yokeyword.fragmentation.ExtraTransaction;
