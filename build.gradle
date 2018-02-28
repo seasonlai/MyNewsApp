@@ -47,7 +47,7 @@ ext {
     roomVersion = "1.0.0"
     daggerVersion = '2.11'
     dexmakerVersion = '1.2'
-    rxjavaVersion='2.0.6'
+    rxjavaVersion='2.1.3'
     rxandroidVersion='2.0.1'
     butterknifeVersion='8.8.1'
     butterknifeCompilerVersion='8.8.1'
