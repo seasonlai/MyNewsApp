@@ -108,18 +108,44 @@ public class DetailFragment extends BaseFragment<DetailPresenter> implements Det
     }
 
     @Override
-    public void loadTopNewsData(NewsDetail newsDetail) {
+    public void onRetry() {
+        super.onRetry();
+        lazyInit();
+    }
 
+    @Override
+    public void loadTopNewsData(NewsDetail newsDetail) {
+        Log.i(TAG, "loadTopNewsData: " + newsDetail.toString());
     }
 
     @Override
     public void loadData(List<NewsDetail.ItemBean> itemBeanList) {
-
+        if (itemBeanList == null || itemBeanList.size() == 0) {
+            showFailed();
+            mPtrFrameLayout.refreshComplete();
+        } else {
+            downPullNum++;
+            if (isRemoveHeaderView) {
+                detailAdapter.removeAllHeaderView();
+            }
+            detailAdapter.setNewData(itemBeanList);
+            showToast(itemBeanList.size(), true);
+            mPtrFrameLayout.refreshComplete();
+            showSuccess();
+            Log.i(TAG, "loadData: " + itemBeanList.toString());
+        }
     }
 
     @Override
     public void loadMoreData(List<NewsDetail.ItemBean> itemBeanList) {
-
+        if (itemBeanList == null || itemBeanList.size() == 0) {
+            detailAdapter.loadMoreFail();
+        } else {
+            upPullNum++;
+            detailAdapter.addData(itemBeanList);
+            detailAdapter.loadMoreComplete();
+            Log.i(TAG, "loadMoreData: " + itemBeanList.toString());
+        }
     }
 
     @Override
@@ -133,7 +159,7 @@ public class DetailFragment extends BaseFragment<DetailPresenter> implements Det
         if (getArguments() == null) return;
         newsid = getArguments().getString("newsid");
         position = getArguments().getInt("position");
-        mPresenter.getData(newsid, NewsApi.ACTION_DEFAULT, 1);
+        mPresenter.getData(newsid, NewsApi.ACTION_DEFAULT, downPullNum);
     }
 
     @Override
@@ -159,14 +185,15 @@ public class DetailFragment extends BaseFragment<DetailPresenter> implements Det
         detailAdapter.setEnableLoadMore(true);
         detailAdapter.setLoadMoreView(new CustomLoadMoreView());
         detailAdapter.openLoadAnimation(BaseQuickAdapter.ALPHAIN);
-        detailAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
-            @Override
-            public void onLoadMoreRequested() {
-                Log.i(TAG, "onLoadMoreRequested: " + upPullNum);
-                mPresenter.getData(newsid, NewsApi.ACTION_UP, upPullNum);
+        detailAdapter.setOnLoadMoreListener(
+                new BaseQuickAdapter.RequestLoadMoreListener() {
+                    @Override
+                    public void onLoadMoreRequested() {
+                        Log.i(TAG, "onLoadMoreRequested: " + upPullNum);
+                        mPresenter.getData(newsid, NewsApi.ACTION_UP, upPullNum);
 
-            }
-        }, mRecyclerView);
+                    }
+                }, mRecyclerView);
 
         mRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
@@ -183,7 +210,7 @@ public class DetailFragment extends BaseFragment<DetailPresenter> implements Det
                 NewsDetail.ItemBean itemBean = (NewsDetail.ItemBean) baseQuickAdapter.getItem(i);
                 switch (view.getId()) {
                     case R.id.iv_close:
-                        view.getHeight();
+//                        view.getHeight();
                         int[] location = new int[2];
                         view.getLocationInWindow(location);
                         Log.i("JdDetailFragment", "点击的item的高度:" + view.getHeight() + "x值:" + location[0] + "y值" + location[1]);

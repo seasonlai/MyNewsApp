@@ -1,5 +1,6 @@
 package com.example.wellhope.mynewsapp.ui.base;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -7,10 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.wellhope.mynewsapp.MyApp;
+import com.example.wellhope.mynewsapp.R;
+import com.example.wellhope.mynewsapp.utils.DialogHelper;
 import com.example.wellhope.mynewsapp.utils.T;
+import com.example.wellhope.mynewsapp.widget.MultiStateView;
+import com.example.wellhope.mynewsapp.widget.SimpleMultiStateView;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -23,9 +29,15 @@ public abstract class BaseFragment<T1 extends BasePresenter> extends SupportFrag
     @Inject
     protected T1 mPresenter;
 
+    @Nullable
+    @BindView(R.id.SimpleMultiStateView)
+    SimpleMultiStateView mSimpleMultiStateView;
+
     protected View mRootView;
 
     Unbinder unbinder;
+
+    protected Dialog mLoadingDialog = null;
 
     protected abstract int getLayoutID();
 
@@ -45,7 +57,8 @@ public abstract class BaseFragment<T1 extends BasePresenter> extends SupportFrag
             mRootView = inflater.inflate(getLayoutID(), container, false);
             unbinder = ButterKnife.bind(this, mRootView);
         }
-
+        initStateView();
+//        mLoadingDialog = DialogHelper.getLoadingDialog(getActivity());
         return mRootView;
     }
 
@@ -85,25 +98,54 @@ public abstract class BaseFragment<T1 extends BasePresenter> extends SupportFrag
         }
     }
 
+    private void initStateView() {
+        if (mSimpleMultiStateView == null) return;
+        mSimpleMultiStateView.setEmptyResource(R.layout.view_empty)
+                .setRetryResource(R.layout.view_retry)
+                .setLoadingResource(R.layout.view_loading)
+                .setNoNetResource(R.layout.view_nonet)
+                .build()
+                .setonReLoadlistener(new MultiStateView.onReLoadlistener() {
+                    @Override
+                    public void onReload() {
+                        onRetry();
+                    }
+                });
+    }
+
+
+    protected void hideLoadingDialog() {
+        if (mLoadingDialog != null && mLoadingDialog.isShowing())
+            mLoadingDialog.dismiss();
+    }
 
     @Override
     public void showLoading() {
-
+        if (mSimpleMultiStateView != null) {
+            mSimpleMultiStateView.showLoadingView();
+        }
     }
 
     @Override
     public void showSuccess() {
-
+        hideLoadingDialog();
+        if (mSimpleMultiStateView != null) {
+            mSimpleMultiStateView.showContent();
+        }
     }
 
     @Override
     public void showFailed() {
-
+        if (mSimpleMultiStateView != null) {
+            mSimpleMultiStateView.showErrorView();
+        }
     }
 
     @Override
     public void showNoNet() {
-
+        if (mSimpleMultiStateView != null) {
+            mSimpleMultiStateView.showNoNetView();
+        }
     }
 
     @Override

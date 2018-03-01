@@ -118,7 +118,7 @@ public class SupportFragment extends DaggerFragment implements ISupportFragment 
 
     @Override
     public boolean isSupportVisible() {
-        return false;
+        return mDelegate.isSupportVisible();
     }
 
     @Override
