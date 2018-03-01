@@ -1,4 +1,7 @@
-package com.example.wellhope.mynewsapp.ui.news;
+package com.example.wellhope.mynewsapp.ui.news.module;
+
+import com.example.wellhope.mynewsapp.ui.news.NewsFragment;
+import com.example.wellhope.mynewsapp.ui.news.contract.NewsContract;
 
 import dagger.Binds;
 import dagger.Module;

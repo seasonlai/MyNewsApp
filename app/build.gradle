@@ -45,4 +45,16 @@ dependencies {
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.baseAdapterHelperVersion"
     implementation "com.flyco.dialog:FlycoDialog_Lib:$rootProject.flycoDialogVersion"
     implementation "com.flyco.tablayout:FlycoTabLayout_Lib:$rootProject.tablayoutVersion"
+    implementation "org.simple:androideventbus:$rootProject.eventbusVersion"
+    implementation "in.srain.cube:ultra-ptr:$rootProject.ultraPtrVersion"
+    implementation "com.youth.banner:banner:$rootProject.bannerVersion"
+    implementation "com.airbnb.android:lottie:$rootProject.lottieVersion"
+    implementation "com.github.florent37:viewanimator:$rootProject.viewanimatorVersion"
+
+
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit2Version"
+    implementation "com.squareup.retrofit2:converter-scalars:$rootProject.converterScalarsVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.converterGsonVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.adapterRxjava2Version"
+
 }

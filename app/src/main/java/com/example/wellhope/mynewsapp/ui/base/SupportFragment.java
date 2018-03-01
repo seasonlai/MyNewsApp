@@ -1,7 +1,9 @@
 package com.example.wellhope.mynewsapp.ui.base;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.animation.Animation;
 
 import dagger.android.support.DaggerFragment;
 import me.yokeyword.fragmentation.ExtraTransaction;
@@ -17,18 +19,62 @@ public class SupportFragment extends DaggerFragment implements ISupportFragment 
     final SupportFragmentDelegate mDelegate = new SupportFragmentDelegate(this);
 
 //    protected FragmentActivity _mActivity;
-//    @Override
-//    public void onAttach(Activity activity) {
-//        super.onAttach(activity);
-//        mDelegate.onAttach(activity);
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mDelegate.onAttach(activity);
 //        _mActivity = mDelegate.getActivity();
-//    }
+    }
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mDelegate.onCreate(savedInstanceState);
     }
+
+
+    @Override
+    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+        return mDelegate.onCreateAnimation(transit, enter, nextAnim);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mDelegate.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mDelegate.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mDelegate.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mDelegate.onPause();
+    }
+
+    @Override
+    public void onDestroyView() {
+        mDelegate.onDestroyView();
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        mDelegate.onDestroy();
+        super.onDestroy();
+    }
+
 
     @Override
     public SupportFragmentDelegate getSupportDelegate() {
@@ -57,17 +103,17 @@ public class SupportFragment extends DaggerFragment implements ISupportFragment 
 
     @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
-
+        mDelegate.onLazyInitView(savedInstanceState);
     }
 
     @Override
     public void onSupportVisible() {
-
+        mDelegate.onSupportVisible();
     }
 
     @Override
     public void onSupportInvisible() {
-
+        mDelegate.onSupportInvisible();
     }
 
     @Override

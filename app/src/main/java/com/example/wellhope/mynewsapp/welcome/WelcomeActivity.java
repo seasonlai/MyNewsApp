@@ -75,28 +75,4 @@ public class WelcomeActivity extends BaseActivity<WelcomePresenter> implements W
         finish();
     }
 
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void showSuccess() {
-
-    }
-
-    @Override
-    public void showFailed() {
-
-    }
-
-    @Override
-    public void showNoNet() {
-
-    }
-
-    @Override
-    public void onRetry() {
-
-    }
 }

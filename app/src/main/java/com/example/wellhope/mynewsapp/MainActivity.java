@@ -23,7 +23,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.bottomBar)
     BottomBar mBottomBar;
 
-    private SupportFragment[] mFragments = new SupportFragment[4];
+    private SupportFragment[] mFragments = new SupportFragment[1];
 
     @Override
     protected void create(Bundle savedInstanceState) {
@@ -34,7 +34,6 @@ public class MainActivity extends BaseActivity {
 //            mFragments[1] = VideoFragment.newInstance();
 //            mFragments[2] = JanDanFragment.newInstance();
 //            mFragments[3] = PersonalFragment.newInstance();
-
             getSupportDelegate().loadMultipleRootFragment(R.id.contentContainer, 0,
                     mFragments);
         } else {

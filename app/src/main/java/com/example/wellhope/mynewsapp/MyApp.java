@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.example.wellhope.mynewsapp.di.DaggerAppComponent;
 
+import org.litepal.LitePal;
+
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
@@ -21,6 +23,7 @@ public class MyApp extends DaggerApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        LitePal.initialize(this);
         mContext = this;
     }
 

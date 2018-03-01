@@ -1,5 +1,7 @@
 package com.example.wellhope.mynewsapp.ui.base;
 
+import android.os.Bundle;
+
 import dagger.android.support.DaggerAppCompatActivity;
 import me.yokeyword.fragmentation.ExtraTransaction;
 import me.yokeyword.fragmentation.ISupportActivity;
@@ -15,6 +17,12 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
 public abstract class SupportActivity extends DaggerAppCompatActivity implements ISupportActivity {
 
     final SupportActivityDelegate mDelegate = new SupportActivityDelegate(this);
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mDelegate.onCreate(savedInstanceState);
+    }
 
     @Override
     public SupportActivityDelegate getSupportDelegate() {

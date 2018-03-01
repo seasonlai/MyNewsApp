@@ -1,4 +1,4 @@
-package com.example.wellhope.mynewsapp.ui.news;
+package com.example.wellhope.mynewsapp.ui.news.contract;
 
 import com.example.wellhope.mynewsapp.bean.Channel;
 import com.example.wellhope.mynewsapp.ui.base.BaseContract;

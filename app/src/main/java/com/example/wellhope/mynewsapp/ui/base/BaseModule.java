@@ -15,7 +15,7 @@ public class BaseModule {
 
     @Provides
     @Nullable
-    BaseContract.Presenter providerBasePresenter(){return null;}
+    BasePresenter providerBasePresenter(){return null;}
 
     @Provides
     CompositeDisposable providerCompositeDisposable() {

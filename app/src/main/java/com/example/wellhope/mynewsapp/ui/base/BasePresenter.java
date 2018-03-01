@@ -8,7 +8,7 @@ import io.reactivex.disposables.CompositeDisposable;
  * Created by season on 2018/2/25.
  */
 
-public abstract class BasePresenter<V extends BaseContract.View> implements BaseContract.Presenter<V>{
+public abstract class BasePresenter<V extends BaseView> implements BaseContract.Presenter<V>{
 
     @Inject
     protected CompositeDisposable mCompositeDisposable;

@@ -12,7 +12,7 @@ import butterknife.Unbinder;
  * Created by Wellhope on 2018/2/9.
  */
 
-public abstract class BaseActivity<T extends BaseContract.Presenter> extends SupportActivity {
+public abstract class BaseActivity<T extends BasePresenter> extends SupportActivity implements BaseView{
 
     @Nullable
     @Inject
@@ -64,4 +64,29 @@ public abstract class BaseActivity<T extends BaseContract.Presenter> extends Sup
 
     protected abstract int getLayoutId();
 
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void showSuccess() {
+
+    }
+
+    @Override
+    public void showFailed() {
+
+    }
+
+    @Override
+    public void showNoNet() {
+
+    }
+
+    @Override
+    public void onRetry() {
+
+    }
 }
