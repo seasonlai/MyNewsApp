@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import com.example.wellhope.mynewsapp.ui.base.BaseActivity;
 import com.example.wellhope.mynewsapp.ui.base.SupportFragment;
 import com.example.wellhope.mynewsapp.ui.news.NewsFragment;
+import com.example.wellhope.mynewsapp.ui.video.VideoFragment;
 import com.example.wellhope.mynewsapp.utils.StatusBarUtil;
 import com.example.wellhope.mynewsapp.widget.BottomBar;
 import com.example.wellhope.mynewsapp.widget.BottomBarTab;
@@ -23,7 +24,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.bottomBar)
     BottomBar mBottomBar;
 
-    private SupportFragment[] mFragments = new SupportFragment[1];
+    private SupportFragment[] mFragments = new SupportFragment[2];
 
     @Override
     protected void create(Bundle savedInstanceState) {
@@ -31,14 +32,14 @@ public class MainActivity extends BaseActivity {
         StatusBarUtil.setTranslucentForImageViewInFragment(MainActivity.this, 0, null);
         if (savedInstanceState == null) {
             mFragments[0] = NewsFragment.newInstance();
-//            mFragments[1] = VideoFragment.newInstance();
+            mFragments[1] = VideoFragment.newInstance();
 //            mFragments[2] = JanDanFragment.newInstance();
 //            mFragments[3] = PersonalFragment.newInstance();
             getSupportDelegate().loadMultipleRootFragment(R.id.contentContainer, 0,
                     mFragments);
         } else {
             mFragments[0] = findFragment(NewsFragment.class);
-//            mFragments[1] = findFragment(VideoFragment.class);
+            mFragments[1] = findFragment(VideoFragment.class);
 //            mFragments[2] = findFragment(JanDanFragment.class);
 //            mFragments[3] = findFragment(PersonalFragment.class);
         }
@@ -50,7 +51,9 @@ public class MainActivity extends BaseActivity {
         mBottomBar.setOnTabSelectedListener(new BottomBar.OnTabSelectedListener() {
             @Override
             public void onTabSelected(int position, int prePosition) {
-                showHideFragment(mFragments[position], mFragments[prePosition]);
+                if (position < mFragments.length)
+                    showHideFragment(mFragments[position]);
+//                    showHideFragment(mFragments[position], mFragments[prePosition]);
             }
 
             @Override
@@ -63,12 +66,6 @@ public class MainActivity extends BaseActivity {
 
             }
         });
-    }
-
-    private void showHideFragment(Fragment curFragment, Fragment preFragment) {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.show(curFragment).hide(preFragment);
-        ft.commit();
     }
 
     @Override

@@ -4,6 +4,8 @@ import android.support.annotation.StringDef;
 
 
 import com.example.wellhope.mynewsapp.bean.NewsDetail;
+import com.example.wellhope.mynewsapp.bean.VideoChannelBean;
+import com.example.wellhope.mynewsapp.bean.VideoDetailBean;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -72,25 +74,25 @@ public class NewsApi {
 //        }
 //    }
 //
-//    /**
-//     * 获取视频频道列表
-//     *
-//     * @return
-//     */
-//    public Observable<List<VideoChannelBean>> getVideoChannel(){
-//        return mService.getVideoChannel(1);
-//    }
-//
-//    /**
-//     * 获取
-//     *
-//     * @param page
-//     * @param listtype
-//     * @param typeid
-//     * @return
-//     */
-//    public Observable<List<VideoDetailBean>> getVideoDetail(int page,String listtype,String typeid){
-//        return mService.getVideoDetail(page,listtype,typeid);
-//    }
+    /**
+     * 获取视频频道列表
+     *
+     * @return
+     */
+    public Observable<List<VideoChannelBean>> getVideoChannel(){
+        return mService.getVideoChannel(1);
+    }
+
+    /**
+     * 获取
+     *
+     * @param page
+     * @param listtype
+     * @param typeid
+     * @return
+     */
+    public Observable<List<VideoDetailBean>> getVideoDetail(int page, String listtype, String typeid){
+        return mService.getVideoDetail(page,listtype,typeid);
+    }
 
 }

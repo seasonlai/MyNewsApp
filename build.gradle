@@ -29,7 +29,7 @@ task clean(type: Delete) {
 ext {
     // Sdk and tools
     // Support library and architecture components support minSdk 14 and above.
-    minSdkVersion = 16
+    minSdkVersion = 15
     targetSdkVersion = 26
     compileSdkVersion = 26
     buildToolsVersion = '26.0.2'
@@ -62,6 +62,7 @@ ext {
     bannerVersion = '1.4.9'
     lottieVersion = '2.1.0'
     viewanimatorVersion = '1.0.5'
+    videoplayerVersion = '5.7'
 
     //http
     retrofit2Version = '2.1.0'

@@ -15,6 +15,10 @@ public abstract class BasePresenter<V extends BaseView> implements BaseContract.
 
     protected V mView;
 
+    public void subscribe(){
+
+    }
+
     public void unSubscribe(){
         if(mCompositeDisposable!=null){
             mCompositeDisposable.clear();

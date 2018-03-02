@@ -1,4 +1,4 @@
-package com.example.wellhope.mynewsapp.ui.news.module;
+package com.example.wellhope.mynewsapp.ui.module;
 
 import com.example.wellhope.mynewsapp.ui.news.NewsFragment;
 import com.example.wellhope.mynewsapp.ui.news.contract.NewsContract;

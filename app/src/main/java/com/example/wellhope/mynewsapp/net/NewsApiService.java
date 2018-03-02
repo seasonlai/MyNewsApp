@@ -1,6 +1,8 @@
 package com.example.wellhope.mynewsapp.net;
 
 import com.example.wellhope.mynewsapp.bean.NewsDetail;
+import com.example.wellhope.mynewsapp.bean.VideoChannelBean;
+import com.example.wellhope.mynewsapp.bean.VideoDetailBean;
 
 import java.util.List;
 
@@ -53,13 +55,13 @@ public interface NewsApiService {
 //    Observable<NewsCmppVideoBean> getNewsVideoWithCmpp(@Url String url,
 //                                                       @Query("guid") String guid);
 //
-//    @GET("ifengvideoList")
-//    Observable<List<VideoChannelBean>> getVideoChannel(@Query("page") int page);
+    @GET("ifengvideoList")
+    Observable<List<VideoChannelBean>> getVideoChannel(@Query("page") int page);
 //
-//    @GET("ifengvideoList")
-//    Observable<List<VideoDetailBean>> getVideoDetail(@Query("page") int page,
-//                                               @Query("listtype") String listtype,
-//                                               @Query("typeid") String typeid);
+    @GET("ifengvideoList")
+    Observable<List<VideoDetailBean>> getVideoDetail(@Query("page") int page,
+                                                     @Query("listtype") String listtype,
+                                                     @Query("typeid") String typeid);
 
 
 }
